@@ -3,38 +3,16 @@ import PropTypes from 'prop-types';
 
 class Input extends React.Component {
   render() {
-    const { type, label, dataTest } = this.props;
-    if (type === 'select') {
-      console.log(dataTest);
-      return (
-        <label htmlFor={ label }>
-          { label }
-          <select data-testid={ dataTest } type="select">
-            <option>
-              normal
-            </option>
-            <option>
-              raro
-            </option>
-            <option>
-              muito raro
-            </option>
-          </select>
-        </label>
-      );
-    } if (type === 'button') {
-      return (
-        <button data-testid={ dataTest } type="button">
-          Salvar
-        </button>
-      );
-    }
+    const { name, type, label, dataTest, value, func } = this.props;
     return (
-      <label htmlFor={ label }>
+      <label htmlFor={ name }>
         { label }
         <input
+          name={ name }
           data-testid={ dataTest }
           type={ type }
+          value={ value }
+          onChange={ func }
         />
       </label>
     );
@@ -42,9 +20,12 @@ class Input extends React.Component {
 }
 
 Input.propTypes = {
+  name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   dataTest: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  func: PropTypes.func.isRequired,
 };
 
 export default Input;
