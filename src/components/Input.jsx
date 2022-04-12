@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 class Input extends React.Component {
   render() {
-    const { type, name, dataTest } = this.props;
+    const { type, label, dataTest } = this.props;
     if (type === 'select') {
       console.log(dataTest);
       return (
-        <label htmlFor={ name }>
-          { name }
+        <label htmlFor={ label }>
+          { label }
           <select data-testid={ dataTest } type="select">
             <option>
               normal
@@ -30,9 +30,12 @@ class Input extends React.Component {
       );
     }
     return (
-      <label htmlFor={ name }>
-        { name }
-        <input data-testid={ dataTest } type={ type } />
+      <label htmlFor={ label }>
+        { label }
+        <input
+          data-testid={ dataTest }
+          type={ type }
+        />
       </label>
     );
   }
@@ -40,7 +43,7 @@ class Input extends React.Component {
 
 Input.propTypes = {
   type: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
   dataTest: PropTypes.string.isRequired,
 };
 

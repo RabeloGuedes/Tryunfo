@@ -1,13 +1,40 @@
-const inputTypes = ['text', 'textarea',
-  'number', 'number', 'number', 'text', 'select', 'checkbox', 'button'];
+const data = [
+  { type: 'text',
+    dataTest: 'name-input',
+    label: 'Nome da carta',
+    name: 'cardName' },
+  { type: 'textarea',
+    dataTest: 'description-input',
+    label: 'Descrição da Carta',
+    name: 'cardDescription' },
+  { type: 'number',
+    dataTest: 'attr1-input',
+    label: 'Primeiro Atributo',
+    name: 'cardAttr1' },
+  { type: 'number',
+    dataTest: 'attr2-input',
+    label: 'Segundo Atributo',
+    name: 'cardAttr2' },
+  { type: 'number',
+    dataTest: 'attr3-input',
+    label: 'Teceiro Atributo',
+    name: 'cardAttr3' },
+  { type: 'text',
+    dataTest: 'image-input',
+    label: 'Caminho até a imagem',
+    name: 'cardImage' },
+  { type: 'select',
+    dataTest: 'rare-input',
+    label: 'Raridade',
+    name: 'cardRare' },
+  { type: 'checkbox',
+    dataTest: 'trunfo-input',
+    label: 'Super Trunfo ?',
+    name: 'cardTrunfo' },
+  { type: 'button',
+    dataTest: 'save-button',
+    label: 'Salvar',
+    name: 'hasTrunfo' },
+];
 
-const dataTest = ['name-input', 'description-input',
-  'attr1-input', 'attr2-input', 'attr3-input',
-  'image-input', 'rare-input', 'trunfo-input', 'save-button'];
-
-const name = ['Nome da Carta', 'Descrição da Carta',
-  'Primeiro Atributo', 'Segundo Atributo', 'Terceiro Atributo',
-  'Campo de caminho até a imagem', 'Raridade', 'Super Trunfo ?', 'Salvar'];
-
-const data = { inputTypes, dataTest, name };
 export default data;
