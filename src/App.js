@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from './components/Form';
+import Card from './components/Card';
 
 class App extends React.Component {
   constructor() {
@@ -61,6 +62,16 @@ class App extends React.Component {
           isSaveButtonDisabled={ ButtonState }
           onInputChange={ this.onInputChange }
           onSaveButtonClick={ this.onSaveButtonClick }
+        />
+        <Card
+          cardName={ Name }
+          cardDescription={ Description }
+          cardAttr1={ Attribute1 }
+          cardAttr2={ Attribute2 }
+          cardAttr3={ Attribute3 }
+          cardImage={ Image }
+          cardRare={ Rarity }
+          cardTrunfo={ SuperTrunfo }
         />
       </div>
     );
