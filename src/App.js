@@ -15,7 +15,7 @@ class App extends React.Component {
       Attribute3: 0,
       Image: ' ',
       Rarity: ' ',
-      SuperTrunfo: false,
+      SuperTrunfo: '',
       hasTrunfo: false,
       ButtonState: true,
     };
@@ -26,12 +26,48 @@ class App extends React.Component {
     const inputValue = (target.type === 'checkbox') ? target.checked : target.value;
     this.setState(
       () => ({ [key]: inputValue }),
+      () => this.verifier(),
     );
   }
 
-  onSaveButtonClick = () => {
-    console.log('aqui');
+  verifier = () => {
+    const highestPoints = 90;
+    const highestTotalPoints = 210;
+    const {
+      Name,
+      Description,
+      Attribute1,
+      Attribute2,
+      Attribute3,
+      Image,
+      Rarity,
+    } = this.state;
+    const validations = [
+      (Name.length <= 0),
+      (Description.length <= 0),
+      (Attribute1 > highestPoints || Attribute1 < 0),
+      (Attribute2 > highestPoints || Attribute2 < 0),
+      (Attribute3 > highestPoints || Attribute3 < 0),
+      (
+        Number(Attribute1)
+        + Number(Attribute2)
+        + Number(Attribute3)
+        > highestTotalPoints
+      ),
+      (Image.length <= 0),
+      (Rarity.length <= 0),
+    ];
+
+    const verifier = validations.some((item) => item === true);
+
+    this.setState({
+      ButtonState: verifier,
+    });
   };
+
+  onSaveButtonClick = () => {
+    console.log('');
+  }
 
   render() {
     const {
