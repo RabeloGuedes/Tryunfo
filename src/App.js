@@ -71,17 +71,24 @@ class App extends React.Component {
       Attribute3,
       Image,
       Rarity,
+      SuperTrunfo,
     } = this.state;
+    const card = {
+      Name,
+      Description,
+      Attribute1,
+      Attribute2,
+      Attribute3,
+      Image,
+      Rarity,
+      SuperTrunfo,
+    };
+    if (card.SuperTrunfo) {
+      this.setState({ hasTrunfo: true });
+    }
     this.setState(
       () => ({ Deck:
-        [...Deck, {
-          Name,
-          Description,
-          Attribute1,
-          Attribute2,
-          Attribute3,
-          Image,
-          Rarity }],
+        [...Deck, card],
       Name: '',
       Description: '',
       Attribute1: 0,
