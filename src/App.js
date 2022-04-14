@@ -10,11 +10,11 @@ class App extends React.Component {
     this.state = {
       Name: '',
       Description: ' ',
-      Attribute1: 0,
-      Attribute2: 0,
-      Attribute3: 0,
-      Image: ' ',
-      Rarity: ' ',
+      Attribute1: '',
+      Attribute2: '',
+      Attribute3: '',
+      Image: '',
+      Rarity: '',
       SuperTrunfo: '',
       hasTrunfo: false,
       ButtonState: true,
@@ -42,27 +42,22 @@ class App extends React.Component {
       Image,
       Rarity,
     } = this.state;
-    const validations = [
-      (Name.length <= 0),
-      (Description.length <= 0),
-      (Attribute1 > highestPoints || Attribute1 < 0),
-      (Attribute2 > highestPoints || Attribute2 < 0),
-      (Attribute3 > highestPoints || Attribute3 < 0),
-      (
-        Number(Attribute1)
-        + Number(Attribute2)
-        + Number(Attribute3)
-        > highestTotalPoints
-      ),
-      (Image.length <= 0),
-      (Rarity.length <= 0),
-    ];
-
-    const verifier = validations.some((item) => item === true);
-
-    this.setState({
-      ButtonState: verifier,
-    });
+    if (Name.length === 0
+      || Description.length === 0
+      || (Attribute1 > highestPoints || Attribute1 < 0)
+      || (Attribute2 > highestPoints || Attribute2 < 0)
+      || (Attribute3 > highestPoints || Attribute3 < 0)
+      || (Number(Attribute1)
+      + Number(Attribute2)
+      + Number(Attribute3)
+      > highestTotalPoints)
+      || Image.length === 0
+      || (Rarity.length === 0)
+    ) {
+      this.setState({ ButtonState: true });
+    } else {
+      this.setState({ ButtonState: false });
+    }
   };
 
   onSaveButtonClick = () => {
