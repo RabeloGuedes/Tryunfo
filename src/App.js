@@ -18,6 +18,7 @@ class App extends React.Component {
       SuperTrunfo: '',
       hasTrunfo: false,
       ButtonState: true,
+      Deck: [],
     };
   }
 
@@ -61,7 +62,35 @@ class App extends React.Component {
   };
 
   onSaveButtonClick = () => {
-    console.log('');
+    const {
+      Deck,
+      Name,
+      Description,
+      Attribute1,
+      Attribute2,
+      Attribute3,
+      Image,
+      Rarity,
+    } = this.state;
+    this.setState(
+      () => ({ Deck:
+        [...Deck, {
+          Name,
+          Description,
+          Attribute1,
+          Attribute2,
+          Attribute3,
+          Image,
+          Rarity }],
+      Name: '',
+      Description: '',
+      Attribute1: 0,
+      Attribute2: 0,
+      Attribute3: 0,
+      Image: '',
+      Rarity: 'normal',
+      }),
+    );
   }
 
   render() {
