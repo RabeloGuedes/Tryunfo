@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import AllCards from './components/Deck';
 
 class App extends React.Component {
   constructor() {
@@ -95,7 +96,8 @@ class App extends React.Component {
       Attribute2: 0,
       Attribute3: 0,
       Image: '',
-      Rarity: 'normal',
+      Rarity: '',
+      ButtonState: true,
       }),
     );
   }
@@ -112,6 +114,7 @@ class App extends React.Component {
       SuperTrunfo,
       hasTrunfo,
       ButtonState,
+      Deck,
     } = this.state;
     return (
       <div>
@@ -140,6 +143,7 @@ class App extends React.Component {
           cardRare={ Rarity }
           cardTrunfo={ SuperTrunfo }
         />
+        <AllCards deck={ Deck } />
       </div>
     );
   }

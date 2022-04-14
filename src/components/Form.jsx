@@ -18,7 +18,6 @@ class Form extends React.Component {
       onInputChange,
       onSaveButtonClick,
     } = this.props;
-    console.log(hasTrunfo);
     return (
       <form>
         <div>
@@ -90,6 +89,7 @@ class Form extends React.Component {
               value={ cardRare }
               onChange={ onInputChange }
             >
+              <option value="" hidden>----</option>
               <option value="normal">normal</option>
               <option value="raro">raro</option>
               <option value="muito raro">muito raro</option>
