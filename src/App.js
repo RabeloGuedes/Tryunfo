@@ -8,6 +8,7 @@ class App extends React.Component {
     super();
     this.onInputChange = this.onInputChange.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
+    this.cardRemover = this.cardRemover.bind(this);
     this.state = {
       Name: '',
       Description: ' ',
@@ -16,7 +17,7 @@ class App extends React.Component {
       Attribute3: '',
       Image: '',
       Rarity: '',
-      SuperTrunfo: '',
+      SuperTrunfo: false,
       hasTrunfo: false,
       ButtonState: true,
       Deck: [],
@@ -97,10 +98,27 @@ class App extends React.Component {
       Attribute3: 0,
       Image: '',
       Rarity: '',
+      SuperTrunfo: false,
       ButtonState: true,
       }),
     );
   }
+
+  cardRemover = ({ target }) => {
+    const { Deck } = this.state;
+    const newDeck = Deck.filter(({ Name }) => Name !== target.name);
+    this.setState(
+      () => ({ Deck: newDeck }),
+      () => this.isThereSuperTrunfo(),
+    );
+  };
+
+  isThereSuperTrunfo = () => {
+    const { Deck } = this.state;
+    if (!Deck.find(({ SuperTrunfo }) => SuperTrunfo === true)) {
+      this.setState({ hasTrunfo: false });
+    }
+  };
 
   render() {
     const {
@@ -143,7 +161,7 @@ class App extends React.Component {
           cardRare={ Rarity }
           cardTrunfo={ SuperTrunfo }
         />
-        <AllCards deck={ Deck } />
+        <AllCards deck={ Deck } func={ this.cardRemover } />
       </div>
     );
   }

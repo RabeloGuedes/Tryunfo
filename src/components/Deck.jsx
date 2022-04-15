@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class AllCards extends React.Component {
   render() {
-    const { deck } = this.props;
+    const { deck, func } = this.props;
     return (
       <div>
         { deck.map(({ Name,
@@ -40,8 +40,16 @@ class AllCards extends React.Component {
             </p>
             {
               (SuperTrunfo)
-                ? <span data-testid="trunfo-card"> Super Trunfo </span> : ''
+                ? <h3 data-testid="trunfo-card"> Super Trunfo </h3> : ''
             }
+            <button
+              name={ Name }
+              type="button"
+              data-testid="delete-button"
+              onClick={ func }
+            >
+              Excluir
+            </button>
           </div>)) }
       </div>
     );
@@ -50,6 +58,7 @@ class AllCards extends React.Component {
 
 AllCards.propTypes = {
   deck: PropTypes.arrayOf(PropTypes.object).isRequired,
+  func: PropTypes.func.isRequired,
 };
 
 export default AllCards;
