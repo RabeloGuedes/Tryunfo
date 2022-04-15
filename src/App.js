@@ -1,7 +1,8 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
-import AllCards from './components/Deck';
+import AllCards from './components/AllCards';
+import Search from './components/Search';
 
 class App extends React.Component {
   constructor() {
@@ -9,6 +10,7 @@ class App extends React.Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.cardRemover = this.cardRemover.bind(this);
+    this.filterChange = this.filterChange.bind(this);
     this.state = {
       Name: '',
       Description: ' ',
@@ -21,6 +23,7 @@ class App extends React.Component {
       hasTrunfo: false,
       ButtonState: true,
       Deck: [],
+      Filter: '',
     };
   }
 
@@ -120,6 +123,10 @@ class App extends React.Component {
     }
   };
 
+  filterChange = ({ target }) => {
+    this.setState({ Filter: target.value });
+  };
+
   render() {
     const {
       Name,
@@ -133,6 +140,7 @@ class App extends React.Component {
       hasTrunfo,
       ButtonState,
       Deck,
+      Filter,
     } = this.state;
     return (
       <div>
@@ -151,6 +159,7 @@ class App extends React.Component {
           onInputChange={ this.onInputChange }
           onSaveButtonClick={ this.onSaveButtonClick }
         />
+        <Search value={ Filter } func={ this.filterChange } />
         <Card
           cardName={ Name }
           cardDescription={ Description }
@@ -161,7 +170,7 @@ class App extends React.Component {
           cardRare={ Rarity }
           cardTrunfo={ SuperTrunfo }
         />
-        <AllCards deck={ Deck } func={ this.cardRemover } />
+        <AllCards filter={ Filter } deck={ Deck } func={ this.cardRemover } />
       </div>
     );
   }

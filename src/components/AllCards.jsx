@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 class AllCards extends React.Component {
   render() {
-    const { deck, func } = this.props;
+    const { deck, func, filter } = this.props;
     return (
       <div>
-        { deck.map(({ Name,
+        { deck.filter(({ Name }) => filter === '' || Name.includes(filter)).map(({ Name,
           Description,
           Attribute1,
           Attribute2,
@@ -59,6 +59,7 @@ class AllCards extends React.Component {
 AllCards.propTypes = {
   deck: PropTypes.arrayOf(PropTypes.object).isRequired,
   func: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
 };
 
 export default AllCards;
