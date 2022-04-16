@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 
 class AllCards extends React.Component {
   render() {
-    const { deck, func, filterInput, filterSelect } = this.props;
+    const { deck, func, filterInput, filterSelect, bestCardOn } = this.props;
     return (
       <div>
-        { deck.filter(({ Name, Rarity }) => ((filterInput === ''
+        { deck.filter(({ Name, Rarity, SuperTrunfo }) => ((filterInput === ''
           || Name.includes(filterInput))
           && (filterSelect === 'todas'
-          || filterSelect === Rarity))).map(({ Name,
+          || filterSelect === Rarity)
+          && (SuperTrunfo === bestCardOn || bestCardOn === false))).map(({ Name,
           Description,
           Attribute1,
           Attribute2,
@@ -64,6 +65,7 @@ AllCards.propTypes = {
   func: PropTypes.func.isRequired,
   filterInput: PropTypes.string.isRequired,
   filterSelect: PropTypes.string.isRequired,
+  bestCardOn: PropTypes.bool.isRequired,
 };
 
 export default AllCards;

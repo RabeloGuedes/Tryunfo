@@ -12,12 +12,13 @@ class App extends React.Component {
     this.cardRemover = this.cardRemover.bind(this);
     this.filterInputChange = this.filterInputChange.bind(this);
     this.filterSelectChange = this.filterSelectChange.bind(this);
+    this.checkboxStatus = this.checkboxStatus.bind(this);
     this.state = {
       Name: '',
       Description: ' ',
-      Attribute1: '',
-      Attribute2: '',
-      Attribute3: '',
+      Attribute1: 0,
+      Attribute2: 0,
+      Attribute3: 0,
       Image: '',
       Rarity: '',
       SuperTrunfo: false,
@@ -26,6 +27,8 @@ class App extends React.Component {
       Deck: [],
       Filter: '',
       Select: 'todas',
+      BestCardOn: false,
+      Disabled: false,
     };
   }
 
@@ -133,6 +136,20 @@ class App extends React.Component {
     this.setState({ Select: target.value });
   }
 
+  checkboxStatus = ({ target }) => {
+    if (target.checked) {
+      this.setState({
+        BestCardOn: true,
+        Disabled: true,
+      });
+    } else {
+      this.setState({
+        BestCardOn: false,
+        Disabled: false,
+      });
+    }
+  };
+
   render() {
     const {
       Name,
@@ -148,6 +165,8 @@ class App extends React.Component {
       Deck,
       Filter,
       Select,
+      BestCardOn,
+      Disabled,
     } = this.state;
     return (
       <div>
@@ -171,6 +190,8 @@ class App extends React.Component {
           filterInputChange={ this.filterInputChange }
           selectFilter={ Select }
           filterSelectChange={ this.filterSelectChange }
+          superTrunfoFunc={ this.checkboxStatus }
+          disabled={ Disabled }
         />
         <Card
           cardName={ Name }
@@ -187,6 +208,7 @@ class App extends React.Component {
           filterSelect={ Select }
           deck={ Deck }
           func={ this.cardRemover }
+          bestCardOn={ BestCardOn }
         />
       </div>
     );
