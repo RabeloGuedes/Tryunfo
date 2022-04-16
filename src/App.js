@@ -10,7 +10,8 @@ class App extends React.Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.cardRemover = this.cardRemover.bind(this);
-    this.filterChange = this.filterChange.bind(this);
+    this.filterInputChange = this.filterInputChange.bind(this);
+    this.filterSelectChange = this.filterSelectChange.bind(this);
     this.state = {
       Name: '',
       Description: ' ',
@@ -24,6 +25,7 @@ class App extends React.Component {
       ButtonState: true,
       Deck: [],
       Filter: '',
+      Select: 'todas',
     };
   }
 
@@ -123,9 +125,13 @@ class App extends React.Component {
     }
   };
 
-  filterChange = ({ target }) => {
+  filterInputChange = ({ target }) => {
     this.setState({ Filter: target.value });
   };
+
+  filterSelectChange = ({ target }) => {
+    this.setState({ Select: target.value });
+  }
 
   render() {
     const {
@@ -141,6 +147,7 @@ class App extends React.Component {
       ButtonState,
       Deck,
       Filter,
+      Select,
     } = this.state;
     return (
       <div>
@@ -159,7 +166,12 @@ class App extends React.Component {
           onInputChange={ this.onInputChange }
           onSaveButtonClick={ this.onSaveButtonClick }
         />
-        <Search value={ Filter } func={ this.filterChange } />
+        <Search
+          inputFilter={ Filter }
+          filterInputChange={ this.filterInputChange }
+          selectFilter={ Select }
+          filterSelectChange={ this.filterSelectChange }
+        />
         <Card
           cardName={ Name }
           cardDescription={ Description }
@@ -170,7 +182,12 @@ class App extends React.Component {
           cardRare={ Rarity }
           cardTrunfo={ SuperTrunfo }
         />
-        <AllCards filter={ Filter } deck={ Deck } func={ this.cardRemover } />
+        <AllCards
+          filterInput={ Filter }
+          filterSelect={ Select }
+          deck={ Deck }
+          func={ this.cardRemover }
+        />
       </div>
     );
   }
