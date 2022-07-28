@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Search.css';
+import './Form.css';
 
 class Search extends React.Component {
   render() {
@@ -12,10 +14,10 @@ class Search extends React.Component {
       disabled,
     } = this.props;
     return (
-      <div>
+      <section>
         <h2>Filtros de busca</h2>
-        <label htmlFor="Search">
-          Buscar carta por Nome
+        <fieldset className='card-name-container'>
+          <legend>Buscar carta por Nome</legend>
           <input
             name="Search"
             type="text"
@@ -24,36 +26,43 @@ class Search extends React.Component {
             data-testid="name-filter"
             disabled={ disabled }
           />
-        </label>
-        <select
-          name="Rarity Search"
-          data-testid="rare-filter"
-          value={ selectFilter }
-          onChange={ filterSelectChange }
-          disabled={ disabled }
-        >
-          <option>
-            todas
-          </option>
-          <option>
-            normal
-          </option>
-          <option>
-            raro
-          </option>
-          <option>
-            muito raro
-          </option>
-        </select>
-        <label htmlFor="SuperTrunfo">
-          Super Trunfo
-          <input
-            type="checkbox"
-            data-testid="trunfo-filter"
-            onChange={ superTrunfoFunc }
-          />
-        </label>
-      </div>
+        </fieldset>
+        <section className='rarity-container'>
+          <fieldset>
+            <legend>Raridade</legend>
+            <select
+              name="Rarity Search"
+              data-testid="rare-filter"
+              value={ selectFilter }
+              onChange={ filterSelectChange }
+              disabled={ disabled }
+            >
+              <option>
+                todas
+              </option>
+              <option>
+                normal
+              </option>
+              <option>
+                raro
+              </option>
+              <option>
+                muito raro
+              </option>
+            </select>
+          </fieldset>
+          <section className='save-container'>
+            <label htmlFor="SuperTrunfo">
+              <input
+                type="checkbox"
+                data-testid="trunfo-filter"
+                onChange={ superTrunfoFunc }
+              />
+              Super Trunfo
+            </label>
+          </section>
+        </section>
+      </section>
     );
   }
 }

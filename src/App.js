@@ -3,6 +3,7 @@ import Form from './components/Form';
 import Card from './components/Card';
 import AllCards from './components/AllCards';
 import Search from './components/Search';
+import './App.css';
 
 class App extends React.Component {
   constructor() {
@@ -170,7 +171,7 @@ class App extends React.Component {
     } = this.state;
     return (
       <div>
-        <h1>Tryunfo</h1>
+        <h1 className='tryunfo-title'>Tryunfo</h1>
         <Form
           cardName={ Name }
           cardDescription={ Description }

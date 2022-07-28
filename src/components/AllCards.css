@@ -1,0 +1,155 @@
+.deck {
+    font-size: 3rem;
+    margin: 5rem 0;
+}
+
+.deck::before {
+    content: "";
+    display: block;
+    width: 90%;
+    border-top: 0.3rem solid var(--primary-color);
+    margin: -0.5rem auto 1.5rem;
+}
+
+.all-cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 4rem;
+}
+
+.all-cards-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 15px;
+    border: 3px solid var(--secondary-color);
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    background-color: var(--complementary-color);
+    margin-bottom: 4rem;
+    position: relative;
+    box-shadow: 0.5rem 0.8rem 1.5rem rgba(0, 0, 0, 0.684);
+}
+
+.all-cards-container h2 {
+    font-size: 1.5rem;
+}
+
+.all-cards-container h4 {
+    font-size: 2rem;
+    margin: 20px 0;
+    color: var(--tertiary-color);
+    text-shadow: 0.1rem 0.1rem 10px rgba(0, 0, 0, 0.684);
+}
+
+.all-cards-container div img {
+    width: 100%;
+    max-height: 312px;
+    text-align: center;
+    margin: -1.5rem 0 1rem;
+    text-shadow: 0.1rem 0.1rem 10px rgba(0, 0, 0, 0.684);
+    color: var(--tertiary-color);
+}
+
+.all-cards-container div p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+}
+
+.card-span {
+    margin-top: 0.7rem;
+    color: var(--tertiary-color);
+    text-shadow: 0.1rem 0.1rem 10px rgba(0, 0, 0, 0.684);
+}
+
+.all-cards-container div h3 {
+    font-size: 1.2rem;
+    background-color: var(--tertiary-color);
+    width: 100%;
+    margin-top: 0.5rem;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.all-cards-container div button {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(189, 13, 13);
+    color: var(--tertiary-color);
+    font-size: 1.2rem;
+    font-weight: 700;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    box-shadow: 0.3rem 0.3rem 0.8rem rgba(0, 0, 0, 0.684);
+}
+
+.all-cards-container div button:hover {
+    background-color: rgb(213, 27, 27);
+}
+
+@media screen and (min-width: 768px) {
+
+    .deck-container {
+        border: 3px solid var(--secondary-color);
+        border-radius: 15px;
+        width: 90%;
+        margin: 0 auto 5rem;
+    }
+
+    .deck {
+        background-color: var(--complementary-color);
+        color: var(--tertiary-color);
+        padding: 5rem 0;
+        margin-top: 0;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        font-size: 5rem;
+        letter-spacing: 0.3rem;
+    }
+    
+    .all-cards-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 0;
+    }
+
+    .all-cards-container div {
+        height: 900px;
+    }
+
+    .all-cards-container div {
+        width: 30%;
+    }
+
+    .deck::before {
+        display: none;
+    }
+
+    .all-cards-container div h3 {
+        font-size: 1.8rem;
+    }
+
+    .all-cards-container div button {
+        position: absolute;
+        bottom: 1.2rem;
+        margin-bottom: 0;
+    }
+}

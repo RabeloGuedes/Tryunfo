@@ -5,16 +5,22 @@ class Input extends React.Component {
   render() {
     const { name, type, label, dataTest, value, func } = this.props;
     return (
-      <label htmlFor={ name }>
-        { label }
+      <fieldset
+        className="form-group"
+      >
+        <legend>
+          { label }
+        </legend>
         <input
+          autoComplete='off'
+          className="form-input"
           name={ name }
           data-testid={ dataTest }
           type={ type }
           value={ value }
           onChange={ func }
         />
-      </label>
+      </fieldset>
     );
   }
 }

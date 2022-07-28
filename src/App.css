@@ -1,0 +1,29 @@
+:root {
+	--primary-color: #A34802;
+	--secondary-color: #C08A6A;
+	--tertiary-color: #FFE8D1;
+	--complementary-color: #63BAAB;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--tertiary-color);
+}
+
+.tryunfo-title {
+	text-align: center;
+	font-size: 3em;
+	color: var(--primary-color);
+	background-color: var(--complementary-color);
+	padding: 3rem 0;
+	margin-top: 0;
+}
+
+@media screen and (min-width: 768px) {
+	.tryunfo-title {
+		font-size: 4.5em;
+	}
+}

@@ -1,0 +1,70 @@
+.card-preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 15px;
+    border: 2px solid var(--secondary-color);
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    background-color: var(--complementary-color);
+    margin-bottom: 4rem;
+}
+
+.card-preview-container h2 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.card-preview-container h4 {
+    font-size: 2rem;
+    margin-top: 0.5rem;
+    color: var(--tertiary-color);
+    text-align: center;
+    text-shadow: 0.1rem 0.1rem 10px rgba(0, 0, 0, 0.684);
+}
+
+.card-preview-container img {
+    color: var(--tertiary-color);
+    margin: -3rem 0 1rem;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    text-shadow: 0.1rem 0.1rem 10px rgba(0, 0, 0, 0.684);
+}
+
+.card-preview-container p {
+    margin-top: -0.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-preview-span {
+    display: block;
+    text-align: center;
+    margin-top: 0.3rem;
+    color: var(--tertiary-color);
+    text-shadow: 0.1rem 0.1rem 10px rgba(0, 0, 0, 0.684);
+}
+
+@media screen and (min-width: 768px) {
+    .card-preview-container {
+        width: 25%;
+    }
+
+    .card-preview-container h2 {
+        font-size: 3rem;
+    }
+
+    .card-preview-container h4 {
+        font-size: 3rem;
+    }
+    .card-preview-container p {
+        font-size: 1.5rem;
+    }
+}
