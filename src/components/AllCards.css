@@ -32,7 +32,6 @@
     width: 80%;
     margin: 0 auto;
     border-radius: 15px;
-    border: 3px solid var(--secondary-color);
     font-size: 1.2rem;
     color: var(--primary-color);
     font-weight: 500;
@@ -54,7 +53,7 @@
 }
 
 .all-cards-container div img {
-    width: 100%;
+    width: 312px;
     max-height: 312px;
     text-align: center;
     margin: -1.5rem 0 1rem;
@@ -68,12 +67,19 @@
     justify-content: center;
     align-items: center;
     margin-top: 0;
+    width: 100%;
+    text-align: center;
+    text-shadow: 0.1rem 0.1rem 0.9rem rgba(255, 255, 255, 0.621);
 }
 
 .card-span {
     margin-top: 0.7rem;
     color: var(--tertiary-color);
     text-shadow: 0.1rem 0.1rem 10px rgba(0, 0, 0, 0.684);
+    background-color: var(--secondary-color);
+    width: 100%;
+    padding: 0.7rem 0;
+    font-size: 2rem;
 }
 
 .all-cards-container div h3 {
@@ -83,6 +89,7 @@
     margin-top: 0.5rem;
     text-align: center;
     padding: 1.5rem;
+    text-shadow: 0.1rem 0.1rem 10px rgba(0, 0, 0, 0.281);
 }
 
 .all-cards-container div button {
@@ -112,6 +119,7 @@
         border-radius: 15px;
         width: 90%;
         margin: 0 auto 5rem;
+        box-shadow: 0.5rem 0.8rem 1.5rem rgba(0, 0, 0, 0.684);
     }
 
     .deck {
@@ -132,7 +140,7 @@
     }
 
     .all-cards-container div {
-        height: 900px;
+        height: 1300px;
     }
 
     .all-cards-container div {
@@ -141,6 +149,10 @@
 
     .deck::before {
         display: none;
+    }
+
+    .all-cards-container div p {
+        font-size: 1.5rem;
     }
 
     .all-cards-container div h3 {
